@@ -45,3 +45,11 @@ You can change the location to somewhere closer using values from the `Name` col
 ```sh
 az account list-locations -o table
 ```
+
+# Important
+We are using Azure Container Apps (ACA) to host Umami. ACA are serverless container which down to 0 (saving you money), 
+but this also means they are slow to load the first time if they have been inactive for a while. So if it's taking
+a while to load, don't panic :) Give it 10-20 seconds to spin up and you can sign in.
+
+# Set Up Umami
+Follow the (official Umami documentation)[https://umami.is/docs/login] from the `Login` stage!
