@@ -2,7 +2,7 @@
 
 I was looking for a GDPR compliant and free alternative to Google Analytics and I found Umami. It's simple UI has been a dream to use and I'm enternally grateful Umami respects the user's privacy so I don't have to display that annoying cookie banner. Check out my post on how to set it up in Microsoft Azure in a few simple steps.
 
-# Login
+# :computer: Login
 
 To get started you need the following:
 
@@ -17,7 +17,7 @@ az login
 az account set --subscription <subscriptionId>
 ```
 
-# Deploy
+# :rocket: Deploy
 
 Once logged in, we will run a simple command and follow the prompts to deploy Umami.
 To run it, clone this repository, navigate to it in terminal and then run Bicep
@@ -27,7 +27,7 @@ using the following command.
 az deployment sub create --location australiaeast --template-file infra/main.bicep
 ```
 
-## Password and Hash Salt
+## :key: Password and Hash Salt
 
 This will prompt you enter a few parameters. Keep note of the password you set (securely) so you can login to the database directly.
 The sqlserver username is set to `umami`, if you need to change it, edit the `mysql.bicep` file.
@@ -38,18 +38,19 @@ Note that passwords are hashed and NOT stored as plain text in the database.
 You can use any random string for the password and hash salt but you can also use the following:
 https://bitwarden.com/password-generator/
 
-# Different Location
+# :earth_asia: Different Location
 
-You can change the location to somewhere closer using values from the `Name` column from the following command.
+You can change the location in the `az deployment` command to somewhere closer.  
+Run the following command and use one of the values from the `Name` column.
 
 ```sh
 az account list-locations -o table
 ```
 
-# Important
-We are using Azure Container Apps (ACA) to host Umami. ACA are serverless container which down to 0 (saving you money), 
+#  :exclamation: Important
+We are using Azure Container Apps (ACA) to host Umami. ACA are serverless containers which scale down to 0 (saving you money), 
 but this also means they are slow to load the first time if they have been inactive for a while. So if it's taking
-a while to load, don't panic :) Give it 10-20 seconds to spin up and you can sign in.
+a while to load, don't panic :smile: Give it 10-20 seconds to spin up and you can sign in.
 
 # Set Up Umami
 Follow the [official Umami documentation](https://umami.is/docs/login) from the `Login` stage!
