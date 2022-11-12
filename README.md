@@ -1,6 +1,8 @@
 # Umami in Azure
 
-I was looking for a GDPR compliant and free alternative to Google Analytics and I found Umami. It's simple UI has been a dream to use and I'm enternally grateful Umami respects the user's privacy so I don't have to display that annoying cookie banner. Check out below to get it deployed in minutes.
+I was looking for a GDPR compliant and free alternative to Google Analytics and I found Umami. 
+It's simple UI is a pleasure to use (both mobile and desktop) and I'm very grateful Umami respects the user's privacy 
+so I don't have to display that annoying cookie banner. Check out below to get it deployed in minutes.
 
 # Login
 
@@ -20,7 +22,7 @@ az account set --subscription <subscriptionId>
 # Deploy
 
 Once logged in, we will run a simple command and follow the prompts to deploy Umami.
-To run it, clone this repository, navigate to it in terminal and then run Bicep
+To run it, [fork and clone this repository](https://github.com/tombrereton/umami-azure), navigate to it in terminal and then run Bicep
 using the following command.
 
 ```sh
