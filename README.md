@@ -6,8 +6,8 @@ I was looking for a GDPR compliant and free alternative to Google Analytics and 
 
 To get started you need the following:
 
-- (Azure Cli)[https://learn.microsoft.com/en-us/cli/azure/install-azure-cli]
-- (Azure Subscription)[https://azure.microsoft.com/en-au/free/]
+- [Azure Cli](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)
+- [Azure Subscription](https://azure.microsoft.com/en-au/free/)
 
 Before deploying Umami to Azure you need to be logged into your Azure and set it to your subscription.
 Open a terminal, run the following commands, and follow the interactive login.
@@ -32,7 +32,7 @@ az deployment sub create --location australiaeast --template-file infra/main.bic
 This will prompt you enter a few parameters. Keep note of the password you set (securely) so you can login to the database directly.
 The sqlserver username is set to `umami`, if you need to change it, edit the `mysql.bicep` file.
 
-A (hash salt)[https://auth0.com/blog/adding-salt-to-hashing-a-better-way-to-store-passwords/] is used when hashing passwords, to make it more secure.
+A [hash salt](https://auth0.com/blog/adding-salt-to-hashing-a-better-way-to-store-passwords/) is used when hashing passwords, to make it more secure.
 Note that passwords are hashed and NOT stored as plain text in the database.
 
 You can use any random string for the password and hash salt but you can also use the following:
@@ -52,4 +52,4 @@ but this also means they are slow to load the first time if they have been inact
 a while to load, don't panic :) Give it 10-20 seconds to spin up and you can sign in.
 
 # Set Up Umami
-Follow the (official Umami documentation)[https://umami.is/docs/login] from the `Login` stage!
+Follow the [official Umami documentation](https://umami.is/docs/login) from the `Login` stage!
