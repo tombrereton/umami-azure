@@ -1,8 +1,8 @@
+@secure()
+param mySqlServerPassword string
 param mySqlServerName string
 param location string = resourceGroup().location
-
-@secure()
-param databasePassword string
+param databaseName string
 
 
 resource mysqlServer 'Microsoft.DBforMySQL/flexibleServers@2021-05-01' = {
@@ -14,7 +14,7 @@ resource mysqlServer 'Microsoft.DBforMySQL/flexibleServers@2021-05-01' = {
   }
   properties: {
     administratorLogin: 'umami'
-    administratorLoginPassword: databasePassword
+    administratorLoginPassword: mySqlServerPassword
     storage: {
       storageSizeGB: 20
       iops: 360
@@ -32,7 +32,7 @@ resource mysqlServer 'Microsoft.DBforMySQL/flexibleServers@2021-05-01' = {
 
 resource mysqlDatabase 'Microsoft.DBforMySQL/flexibleServers/databases@2021-05-01' = {
   parent: mysqlServer
-  name: 'umami'
+  name: databaseName
   properties: {
     charset: 'utf8'
     collation: 'utf8_general_ci'

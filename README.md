@@ -1,28 +1,47 @@
 # Umami in Azure
 
-# Prereqs
-Before setting up Umami in Azure you need to be logged into your Azure and set it to your subscription.
+I was looking for a GDPR compliant and free alternative to Google Analytics and I found Umami. It's simple UI has been a dream to use and I'm enternally grateful Umami respects the user's privacy so I don't have to display that annoying cookie banner. Check out my post on how to set it up in Microsoft Azure in a few simple steps.
+
+# Login
+
+To get started you need the following:
+
+- (Azure Cli)[https://learn.microsoft.com/en-us/cli/azure/install-azure-cli]
+- (Azure Subscription)[https://azure.microsoft.com/en-au/free/]
+
+Before deploying Umami to Azure you need to be logged into your Azure and set it to your subscription.
+Open a terminal, run the following commands, and follow the interactive login.
 
 ```sh
 az login
 az account set --subscription <subscriptionId>
 ```
 
-Also we need at least Azure CLI 2.20.0 or later installed to run Bicep commands.
+# Deploy
 
- https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/install
-
-# Creating Azure Resources
-We will use Bicep to create the resources. To run it, clone this repository, navigate to it in terminal and then run Bicep.
+Once logged in, we will run a simple command and follow the prompts to deploy Umami.
+To run it, clone this repository, navigate to it in terminal and then run Bicep
+using the following command.
 
 ```sh
-az deployment sub create --location AustraliaEast --template-file infra/main.bicep
+az deployment sub create --location australiaeast --template-file infra/main.bicep
 ```
 
-This will prompt you enter a few parameters. Keep note of the password you set (securely), so that you can log in later. The username is set to `umami`.
+## Password and Hash Salt
 
+This will prompt you enter a few parameters. Keep note of the password you set (securely) so you can login to the database directly.
+The sqlserver username is set to `umami`, if you need to change it, edit the `mysql.bicep` file.
 
-https://www.thorsten-hans.com/how-to-deploy-azure-container-apps-with-bicep/
+A (hash salt)[https://auth0.com/blog/adding-salt-to-hashing-a-better-way-to-store-passwords/] is used when hashing passwords, to make it more secure.
+Note that passwords are hashed and NOT stored as plain text in the database.
 
+You can use any random string for the password and hash salt but you can also use the following:
+https://bitwarden.com/password-generator/
 
-https://learn.microsoft.com/en-us/azure/container-apps/github-actions-cli?tabs=bash
+# Different Location
+
+You can change the location to somewhere closer using values from the `Name` column from the following command.
+
+```sh
+az account list-locations -o table
+```

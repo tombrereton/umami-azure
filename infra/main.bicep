@@ -20,6 +20,10 @@ param location string = 'Australia East'
 @secure()
 param databasePassword string
 
+@description('The hash salt used when hashing passwords (passwords are hashed and NOT stored as plain text.)')
+@secure()
+param hashSalt string
+
 resource rg 'Microsoft.Resources/resourceGroups@2021-04-01' = {
   name: 'rg-${appName}-${env}'
   location: location
@@ -33,6 +37,7 @@ module resources 'resources.bicep' = {
     location: location
     env: env
     databasePassword: databasePassword
+    hashSalt: hashSalt
   }
 }
 
