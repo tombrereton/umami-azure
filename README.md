@@ -1,7 +1,7 @@
 # Umami in Azure
 
-I was looking for a GDPR compliant and free alternative to Google Analytics and I found Umami. 
-It's simple UI is a pleasure to use (both mobile and desktop) and I'm very grateful Umami respects the user's privacy 
+I was looking for a GDPR compliant and free alternative to Google Analytics and I found [Umami](https://umami.is).
+It's simple UI is a pleasure to use (both mobile and desktop) and I'm very grateful Umami respects the user's privacy
 so I don't have to display that annoying cookie banner. Check out below to get it deployed in minutes.
 
 # Login
