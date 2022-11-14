@@ -31,18 +31,19 @@ az deployment sub create --location australiaeast --template-file infra/main.bic
 
 ## Password and Hash Salt
 
-This will prompt you enter a few parameters. Keep note of the password you set (securely) so you can login to the database directly.
+The command will prompt you to enter a few parameters. I recommend storing the `databasePassword` and `hashSalt` somewhere secure so that you can login to the database directly. Note that you do *not* need to record either to login to Umami. 
 The sqlserver username is set to `umami`, if you need to change it, edit the `mysql.bicep` file.
 
 A [hash salt](https://auth0.com/blog/adding-salt-to-hashing-a-better-way-to-store-passwords/) is used when hashing passwords, to make it more secure.
 Note that passwords are hashed and NOT stored as plain text in the database.
 
 You can use any random string for the password and hash salt but you can also use the following:
+
 https://bitwarden.com/password-generator/
 
 # Different Location
 
-You can change the location in the `az deployment` command to somewhere closer.  
+You can change the `--location` in the `az deployment` command to somewhere closer.  
 Run the following command and use one of the values from the `Name` column.
 
 ```sh
