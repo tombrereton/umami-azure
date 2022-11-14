@@ -31,15 +31,22 @@ az deployment sub create --location australiaeast --template-file infra/main.bic
 
 ## Password and Hash Salt
 
-The command will prompt you to enter a few parameters. I recommend storing the `databasePassword` and `hashSalt` somewhere secure so that you can login to the database directly. Note that you do *not* need to record either to login to Umami. 
-The sqlserver username is set to `umami`, if you need to change it, edit the `mysql.bicep` file.
+The command will prompt you to enter a few parameters.
+When prompted for the `databasePassword` and `hashSalt`, I recommend 
+storing them somewhere secure like a password manager. 
+
+You can use the `databasePassword` and the sqlserver username  `umami` to login 
+into the database directly. If you want to change the username, edit it in the
+`mysql.bicep` file.
+
+> Note that you do _not_ need to record the `databasePassword` and `hashSalt` to login to Umami, only to login to the database or to point a new Umami app at an existing database.
 
 A [hash salt](https://auth0.com/blog/adding-salt-to-hashing-a-better-way-to-store-passwords/) is used when hashing passwords, to make it more secure.
 Note that passwords are hashed and NOT stored as plain text in the database.
 
 You can use any random string for the password and hash salt but you can also use the following:
 
-https://bitwarden.com/password-generator/
+[bitwarden.com/password-generator](https://bitwarden.com/password-generator/)
 
 # Different Location
 
@@ -56,6 +63,15 @@ We are using Azure Container Apps (ACA) to host Umami. ACA are serverless contai
 but this also means they are slow to load the first time if they have been inactive for a while. So if it's taking
 a while to load, don't panic :smile: Give it 10-20 seconds to spin up and then you can sign in.
 
+# Azure Resources
+The Bicep files deploy the following main resources:
+- Azure Container App
+- MySql Server and Database
+
+It also deploys the supporting resources for the Azure Container App:
+- Container App Environment
+- Log Analytics Workspace
+
 # Log into Umami
 
 Follow the [official Umami documentation](https://umami.is/docs/login) from the `Login` stage!
@@ -69,3 +85,7 @@ command in the terminal.
   -n "aca-umami" \
   --query properties.outputs.fqdn.value
 ```
+
+> Your Umami installation will create a default administrator account with the username **admin** and the password **umami**.
+>
+> The first thing you will want to do is log in and change your password.
