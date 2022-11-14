@@ -50,9 +50,21 @@ az account list-locations -o table
 ```
 
 # Important
-We are using Azure Container Apps (ACA) to host Umami. ACA are serverless containers which scale down to 0 (saving you money), 
-but this also means they are slow to load the first time if they have been inactive for a while. So if it's taking
-a while to load, don't panic :smile: Give it 10-20 seconds to spin up and you can sign in.
 
-# Set Up Umami
+We are using Azure Container Apps (ACA) to host Umami. ACA are serverless containers which scale down to 0 (saving you money),
+but this also means they are slow to load the first time if they have been inactive for a while. So if it's taking
+a while to load, don't panic :smile: Give it 10-20 seconds to spin up and then you can sign in.
+
+# Log into Umami
+
 Follow the [official Umami documentation](https://umami.is/docs/login) from the `Login` stage!
+
+To get the url for the login either navigate to the ACA in the Azure Portal or run the following
+command in the terminal.
+
+```sh
+ az deployment group show \
+  -g "rg-umami-pdn" \
+  -n "aca-umami" \
+  --query properties.outputs.fqdn.value
+```
