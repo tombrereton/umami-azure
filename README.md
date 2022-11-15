@@ -1,7 +1,7 @@
 # Umami in Azure
 
 I was looking for a GDPR compliant and Open Source alternative to Google Analytics, and I found [Umami](https://umami.is).
-It's simple UI is a pleasure to use on both mobile and desktop, which you can check out yourself at [Umami's Live Demo](https://app.umami.is/share/8rmHaheU/umami.is). Another big plus is that Umami's also respects the user's privacy, which means I don't have to display that annoying cookie banner. If this sounds like something you'd be interested in, check out the steps below to get it deployed in minutes.
+It's simple UI is a pleasure to use on both mobile and desktop, which you can check out yourself at [Umami's Live Demo](https://app.umami.is/share/8rmHaheU/umami.is). Another big plus is that Umami respects the user's privacy and doesn't collect identifiable data, which means I don't have to display that annoying cookie banner. If this sounds like something you'd be interested in, check out the steps below to get it deployed in minutes.
 
 # Login to Azure
 
